@@ -1,0 +1,23 @@
+import pyzed.sl as sl
+
+zed = sl.Camera()
+
+def getdepth(x,y):
+    init_params = sl.InitParameters()
+    init_params.depth_mode = sl.DEPTH_MODE.PERFORMANCE
+    init_params.coordinate_units = sl.UNIT.METER
+    
+    if zed.open(init_params) != sl.ERROR_CODE.SUCCESS:
+        exit(1)
+    
+    runtime_params = sl.RuntimeParameters()
+    depth_map = sl.Mat()
+    
+    if zed.grab(runtime_params) == sl.ERROR_CODE.SUCCESS:
+        zed.retrieve_measure(depth_map, sl.MEASURE.DEPTH)
+        depth_value = depth_map.get_value(x, y)[1]
+        print("Depth: ", depth_value, " meters")
+    
+    zed.close()
+
+getdepth(200,200) # enter x,y coordinate to get the depth
