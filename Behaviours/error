@@ -1,0 +1,24 @@
+Exception in thread Thread-5 (_capture_frames):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.10/dist-packages/ipykernel/ipkernel.py", line 766, in run_closure
+    _threading_Thread_run(self)
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/tmp/ipykernel_7849/3846435277.py", line 54, in _capture_frames
+  File "/usr/local/lib/python3.10/dist-packages/traitlets/traitlets.py", line 716, in __set__
+    self.set(obj, value)
+  File "/usr/local/lib/python3.10/dist-packages/traitlets/traitlets.py", line 706, in set
+    obj._notify_trait(self.name, old_value, new_value)
+  File "/usr/local/lib/python3.10/dist-packages/traitlets/traitlets.py", line 1513, in _notify_trait
+    self.notify_change(
+  File "/usr/local/lib/python3.10/dist-packages/traitlets/traitlets.py", line 1525, in notify_change
+    return self._notify_observers(change)
+  File "/usr/local/lib/python3.10/dist-packages/traitlets/traitlets.py", line 1568, in _notify_observers
+    c(event)
+  File "/tmp/ipykernel_7849/3248934411.py", line 58, in main_callback
+  File "/tmp/ipykernel_7849/1079958650.py", line 50, in love_behavior
+  File "/usr/local/lib/python3.10/dist-packages/torch/_tensor.py", line 1090, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
